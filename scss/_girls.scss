@@ -1,0 +1,124 @@
+@charset "utf-8";
+@import "settings";
+.girls-list {
+    @include clearfix; // overflow:hidden;
+    margin-bottom: 100px;
+    ul {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        @include mq(tab_sp) {
+            display: block;
+        }
+        li {
+            @include grid_col(6, wCon(25), 1);
+            margin-bottom: 25px;
+            @include mq(tab) {
+                @include grid_col(3, wCon(30), 1);
+                margin-bottom: 1em;
+            }
+            @include mq(sp) {
+                @include grid_col(2, wCon(40), 1);
+                margin-bottom: 1em;
+            }
+        }
+    }
+}
+
+.item {
+    position: relative;
+    z-index: 0;
+    a {
+        display: block;
+        width: 100%;
+        position: relative;
+        @include clearfix;
+        @include border-radius(10px);
+        @include transition(all .4s ease);
+        .box-img img {
+            width: 100%;
+        }
+        &:before {
+            content: "";
+            width: 100%;
+            height: 50px;
+            @include gradient(rgba(#000, 0.6), rgba(#000, 0));
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        &:after {
+            content: "";
+            width: 100%;
+            height: 50px;
+            @include gradient(rgba(#000, 0), rgba(#000, 0.6));
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .item-header {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 9;
+            .category-name {
+                color: $white;
+                @include fsz(12);
+                padding: 5px 10px;
+            }
+            .price {
+                background: $primary;
+                @include border-radius(0 0 0 10px);
+                color: $white;
+                font-family: $arial;
+                padding: 5px 10px;
+                font-weight: 700;
+                span {
+                    font-size: 80%;
+                    margin-left: .1em;
+                }
+            }
+        }
+        .item-title {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+            z-index: 9;
+            padding: 10px;
+            color: $white;
+            h3 {
+                @include fsz(18);
+            }
+            .desc {
+                @include fsz(11);
+                display: block;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+        }
+        .box-gift {
+            span {
+                display: inline-block;
+                justify-content: center;
+                align-items: center;
+                @include gradient-vertical(#FFD800, $primary, 98%);
+                padding: 5px 15px;
+                @include border-radius(2em);
+                @include fsz(11);
+                font-weight: bold;
+                img {
+                    margin-right: .2em;
+                }
+            }
+        }
+        &:hover {
+            @include opacity(.7);
+        }
+    }
+}

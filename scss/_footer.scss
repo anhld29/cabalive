@@ -1,0 +1,44 @@
+@charset "utf-8";
+@import "settings";
+#footer {
+    text-align: center;
+    @include fsz(11);
+    color: $menu;
+    .container {
+        padding: 2em 0;
+    }
+}
+
+#fixed-footer {
+    background: $white;
+    padding: .8em 2%;
+    border-top: 1px solid $border-line;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    z-index: 99;
+    .container {
+        padding: 0;
+    }
+    .list-menu-footer {
+        li {
+            width: 20%;
+            text-align: center;
+            span {
+                display: block;
+            }
+            a {
+                display: block;
+                color: $menu;
+                &.link-active {
+                    color: $primary;
+                }
+                .fa,
+                .fal {
+                    @include fsz(18);
+                }
+            }
+        }
+    }
+}
